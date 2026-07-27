@@ -1,0 +1,70 @@
+// ===============================
+// ORVIX COMPANY
+// Script JavaScript
+// ===============================
+
+// Message dans la console
+console.log("Bienvenue chez ORVIX COMPANY");
+
+// Animation d'apparition des sections
+const sections = document.querySelectorAll("section");
+
+const observer = new IntersectionObserver((entries) => {
+
+    entries.forEach(entry => {
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("show");
+
+        }
+
+    });
+
+});
+
+sections.forEach(section => {
+
+    section.classList.add("hidden");
+
+    observer.observe(section);
+
+});
+
+// Animation des cartes
+const cards = document.querySelectorAll(".card");
+
+cards.forEach(card => {
+
+    card.addEventListener("mouseenter", () => {
+
+        card.style.transform = "translateY(-15px) scale(1.03)";
+
+    });
+
+    card.addEventListener("mouseleave", () => {
+
+        card.style.transform = "translateY(0px) scale(1)";
+
+    });
+
+});
+
+// Affichage de l'année automatiquement
+const footer = document.querySelector("footer p");
+
+const year = new Date().getFullYear();
+
+footer.innerHTML =
+`© ${year} ORVIX COMPANY<br>Imaginer • Construire • Transformer`;
+
+// Message de bienvenue
+window.onload = function(){
+
+    setTimeout(() => {
+
+        alert("Bienvenue dans l'univers ORVIX.");
+
+    },700);
+
+}
