@@ -121,7 +121,175 @@ document.getElementById("intro").style.display="none";
     margin:20px auto;
     max-width:350px;
     transition:0.3s;
+}// ==========================
+// ORVIX COMPANY
+// script.js
+// ==========================
+
+console.log("ORVIX COMPANY lancé.");
+
+// --------------------------
+// Année automatique
+// --------------------------
+const year = document.getElementById("year");
+
+if (year) {
+    year.textContent = new Date().getFullYear();
 }
+
+// --------------------------
+// Animation des cartes
+// --------------------------
+const cards = document.querySelectorAll(".card");
+
+cards.forEach(card => {
+
+    card.addEventListener("mouseenter", () => {
+        card.style.transform = "scale(1.05)";
+    });
+
+    card.addEventListener("mouseleave", () => {
+        card.style.transform = "scale(1)";
+    });
+
+    card.addEventListener("click", () => {
+
+        const titre = card.querySelector("h3").textContent;
+
+        alert("Bienvenue dans " + titre + " !");
+    });
+
+});
+
+// --------------------------
+// Bouton Retour en haut
+// --------------------------
+const topButton = document.getElementById("topBtn");
+
+if (topButton) {
+
+    window.addEventListener("scroll", () => {
+
+        if (window.scrollY > 300) {
+            topButton.style.display = "block";
+        } else {
+            topButton.style.display = "none";
+        }
+
+    });
+
+    topButton.addEventListener("click", () => {
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    });
+
+}
+
+// --------------------------
+// Défilement fluide
+// --------------------------
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+
+    link.addEventListener("click", function(e){
+
+        e.preventDefault();
+
+        const cible = document.querySelector(this.getAttribute("href"));
+
+        if(cible){
+
+            cible.scrollIntoView({
+                behavior: "smooth"
+            });
+
+        }
+
+    });
+
+});
+
+// --------------------------
+// Heure de bienvenue
+// --------------------------
+const message = document.getElementById("welcome");
+
+if(message){
+
+    const heure = new Date().getHours();
+
+    if(heure < 12){
+
+        message.textContent = "Bonjour et bienvenue sur ORVIX.";
+
+    }else if(heure < 18){
+
+        message.textContent = "Bon après-midi sur ORVIX.";
+
+    }else{
+
+        message.textContent = "Bonsoir et bienvenue sur ORVIX.";
+
+    }
+
+}
+
+// --------------------------
+// Menu mobile
+// --------------------------
+const menuBtn = document.getElementById("menu-btn");
+const menu = document.getElementById("menu");
+
+if(menuBtn && menu){
+
+    menuBtn.addEventListener("click", ()=>{
+
+        menu.classList.toggle("active");
+
+    });
+
+}
+
+// --------------------------
+// Effet d'apparition
+// --------------------------
+const observer = new IntersectionObserver((entries)=>{
+
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("show");
+
+        }
+
+    });
+
+});
+
+document.querySelectorAll(".hidden").forEach(el=>{
+
+    observer.observe(el);
+
+});
+
+
+// ==========================
+// ORA (préparation)
+// ==========================
+
+function ouvrirORA(){
+
+    alert("ORA sera bientôt disponible.");
+
+}
+
+// ==========================
+// Fin
+// ==========================
 
 .card:hover{
     transform:scale(1.05);
