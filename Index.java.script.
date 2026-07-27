@@ -68,3 +68,43 @@ window.onload = function(){
     },700);
 
 }
+// ==========================
+// Effet machine à écrire
+// ==========================
+
+const text =
+"L'avenir appartient à ceux qui le construisent.";
+
+let i = 0;
+
+function typing(){
+
+    if(i < text.length){
+
+        document.getElementById("typing").innerHTML += text.charAt(i);
+
+        i++;
+
+        setTimeout(typing,60);
+
+    }
+
+}
+
+typing();
+
+// ==========================
+// Bouton Entrer
+// ==========================
+
+document.getElementById("enter").onclick=function(){
+
+document.getElementById("intro").style.opacity="0";
+
+setTimeout(()=>{
+
+document.getElementById("intro").style.display="none";
+
+},1000);
+
+}
