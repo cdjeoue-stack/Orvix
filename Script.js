@@ -108,3 +108,25 @@ document.getElementById("intro").style.display="none";
 },1000);
 
 }
+#services{
+    padding:60px 20px;
+    text-align:center;
+}
+
+.card{
+    background:#1b1b1b;
+    border:1px solid #00bfff;
+    border-radius:15px;
+    padding:20px;
+    margin:20px auto;
+    max-width:350px;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:scale(1.05);
+}
+
+.card h3{
+    color:#00bfff;
+}
